@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
- 
+      
 @Component({
     selector: 'purchase-app',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    template: `<child-comp></child-comp>
+                <p>Привет {{name}}</p>`,
+    styles: [`h2, p {color:#333;}`]
 })
-export class AppComponent { }
+export class AppComponent { 
+    name = 'Петр';
+}
