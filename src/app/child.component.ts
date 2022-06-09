@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-      
+import { Component, EventEmitter, Input, Output} from '@angular/core';
+       
 @Component({
     selector: 'child-comp',
-    template: `<ng-content></ng-content>
-                <p>Привет {{name}}</p>`,
-    styles: [`h2, p {color:navy;}`]
+    template: `<button (click)="change(true)">+</button>
+               <button (click)="change(false)">-</button>`
 })
-export class ChildComponent { 
-    name= "Евгений";
+export class ChildComponent{ 
+     
+    @Output() onChanged = new EventEmitter<boolean>();
+    change(increased:any) {
+        this.onChanged.emit(increased);
+    }
 }
