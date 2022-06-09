@@ -1,14 +1,12 @@
-import { Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component} from '@angular/core';
        
 @Component({
     selector: 'child-comp',
-    template: `<button (click)="change(true)">+</button>
-               <button (click)="change(false)">-</button>`
+    template: `<p>{{counter}}</p>`
 })
-export class ChildComponent{ 
+export class ChildComponent{
      
-    @Output() onChanged = new EventEmitter<boolean>();
-    change(increased:any) {
-        this.onChanged.emit(increased);
-    }
+    counter: number = 0;
+    increment() { this.counter++; }
+    decrement() { this.counter--; }
 }
